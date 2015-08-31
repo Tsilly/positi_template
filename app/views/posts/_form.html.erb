@@ -1,0 +1,18 @@
+<%= render "shared/error", obj: @post %>
+
+<div class="span5 well">
+	<%= form_for @post do |f| %>
+		<p>
+			<%= f.label :title %>
+			<%= f.text_field :title %></p>
+		<p>
+			<%= f.label :description %>
+			<%= f.text_area :description, size: "10x10" %></p>
+		<p>
+			<%= f.label :url %>
+			<%= f.text_field :url %></p>
+		<p><%= f.submit action, :class=>"btn btn-primary" %>
+		</p>
+
+	<% end %>
+</div>

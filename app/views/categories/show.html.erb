@@ -1,0 +1,8 @@
+<div class="pull-right">
+	 <%=link_to "[ Category List ]", categories_path %>
+</div>
+
+<%= render 'shared/content_title', title: "Category: #{@category.name}" %>
+<% @posts.each do |f| %>
+	<h4><%= link_to f.title, post_path(f) %></h4>
+<% end %>
