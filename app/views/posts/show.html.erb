@@ -4,7 +4,7 @@
 <div class="span8 well">
 	<p> <%= @post.description %></p>
   <p>Source: <%= link_to @post.url, fix_url(@post.url) %></p>
-  <p><%= link_to "Edit", edit_post_path, :class=>"btn btn-primary" %></p>
+  <p><%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-primary" %></p>
 	<hr>
 </div>
 
