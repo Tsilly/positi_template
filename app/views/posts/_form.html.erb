@@ -2,17 +2,28 @@
 
 <div class="span5 well">
 	<%= form_for @post do |f| %>
-		<p>
-			<%= f.label :title %>
-			<%= f.text_field :title %></p>
-		<p>
-			<%= f.label :description %>
-			<%= f.text_area :description, size: "10x10" %></p>
-		<p>
-			<%= f.label :url %>
-			<%= f.text_field :url %></p>
-		<p><%= f.submit action, :class=>"btn btn-primary" %>
-		</p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		</br>
+
+		<%= f.label :description %>
+		<%= f.text_area :description, size: "10x10" %>
+		</br>
+
+		<%= f.label :url %>
+		<%= f.text_field :url %>
+		</br>
+			
+		<select name="category_ids[]" multiple="multiple">
+			<option value="6">Germany</option>
+			<option value="7">Italy</option>
+			<option value="10">Spain</option>
+			<option value="11">Barcelona</option>
+			<option value="12">France</option>
+		</select>
+
+		</br>
+		<%= f.submit action, :class=>"btn btn-primary" %>
 
 	<% end %>
 </div>

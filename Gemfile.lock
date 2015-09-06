@@ -133,7 +133,7 @@ DEPENDENCIES
   pg
   pry
   quiet_assets
-  rails (= 4.0.0)
+  rails
   rails_12factor
   sass-rails (~> 4.0.0)
   sdoc
