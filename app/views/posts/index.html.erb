@@ -1,7 +1,8 @@
 <%= render "shared/content_title", title: "All posts" %>
 
 <% @posts.each do |post| %>
-<h4><%= link_to post.title, post_path(post) %></h4>
+<h4><%= link_to post.title, post_path(post) %>
+	<small><%= link_to "(edit)", edit_post_path(post) %></small></h4>
 <p>Posted by <%= post.user.username %> on <%= display_time(post.created_at) %>.</p>
 <p>Last updated: <%= display_time(post.updated_at) %>. </p>
 <% end %>

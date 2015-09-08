@@ -1,0 +1,13 @@
+<%= render "shared/error", obj: @user %>
+
+<div class="span5 well">
+	<%= form_for @user do |f| %>
+		<p>
+			<%= f.label :username %>
+			<%= f.text_field :username %></p>
+		<p>
+			<%= f.label :password %>
+			<%= f.text_field :password %></p>
+		<p><%= f.submit @user.new_record? ? "Sign up" : "Update", :class=>"btn btn-primary" %></p>
+	<% end %>
+</div>

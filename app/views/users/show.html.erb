@@ -1,0 +1,16 @@
+<div class="span5 well">
+	<p>Hello, <%= @user.username %></p>
+	<%= link_to "Edit profile", edit_user_path  %>
+
+	<h4>Your posts:</h4>
+		<% @user.posts.each do |f| %>
+			<p> <%= link_to f.title, post_path(f) %> </p>
+		<% end %>
+	<h4>Your comments:</h4>
+		<ul>
+			<% @user.comments.each do |f| %>
+			<li> Post: <%= f.post.title %></li>
+			<p> Your comment:<br><%= f.body %><%= link_to "more", post_path(params[f.user_id]) %></p>
+			<% end %>
+		</ul>
+</div>
