@@ -1,7 +1,7 @@
-<div class="span5 well">
-	<p>Hello, <%= @user.username %></p>
-	<%= link_to "Edit profile", edit_user_path  %>
-
+<div class="well">
+	<%= render 'shared/content_title', title: "Profile" %>
+	<%= link_to "Change password", edit_user_path, :class=>"pull-right"  %>
+	<h4>Username: <%= @user.username %> </h4>
 	<h4>Your posts:</h4>
 		<% @user.posts.each do |f| %>
 			<p> <%= link_to f.title, post_path(f) %> </p>

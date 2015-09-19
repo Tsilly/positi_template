@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update]
-	
+	before_action :require_user, except: [:index, :show]
+
 	def index
 		@posts = Post.all
 	end
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(params_post)
+		@post.user = current_user
 		if @post.save
 			flash[:notice] = "Your post is saved."
 			redirect_to posts_path
@@ -43,4 +45,5 @@ class PostsController < ApplicationController
 		def find_post
 			@post = Post.find(params[:id])
 		end
+
 end
