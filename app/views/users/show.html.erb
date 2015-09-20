@@ -17,17 +17,20 @@
 	  <div class="tab-content">
 	    <div class="tab-pane active" id="tab1">
 	      <% @user.posts.each do |f| %>
-					<p> <%= link_to f.title, post_path(f) %> </p>
+	      <ul>
+					<li> <%= link_to f.title, post_path(f) %> </li>
+				</ul>
 				<% end %>
 	    </div>
 	    <div class="tab-pane" id="tab2">
 	      <ul>
 					<% @user.comments.each do |f| %>
-					<li> Post: <%= f.post.title %></li>
-					<p> Your comment:<br><%= f.body %><%= link_to "more", post_path(params[f.user_id]) %></p>
+					<li> <b>Post:</b> <%= f.post.title %></li>
+					<p> <b>Comment:</b> <br><%= f.body %></p>
 					<% end %>
 				</ul>
 	    </div>
 	  </div>
 	</div>
-</li>
+	<hr>
+</div>
