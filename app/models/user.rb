@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
 	validates :username, uniqueness: true
 	validates :password, length: { in: 6..20 }, on: :create
+	validates :time_zone, presence: true
 end
