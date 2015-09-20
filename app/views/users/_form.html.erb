@@ -7,6 +7,8 @@
 		<p>
 			<%= f.label :password %>
 			<%= f.password_field :password %></p>
+		<p>
+			<%= f.time_zone_select :time_zone %>
 		<p><%= f.submit @user.new_record? ? "Sign up" : "Update", :class=>"btn btn-primary" %></p>
 	<% end %>
 </div>
