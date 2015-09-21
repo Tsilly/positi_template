@@ -1,9 +1,9 @@
 <%= render "shared/error", obj: @category %>
 
 <div class="span5 well">
-	<%= form_for @category do |f| %>
-		<p><%= f.label :name %>
-			<%= f.text_field :name %></p>
-			<p><%= f.submit action, :class=>"btn btn-primary" %></p>
-	<% end %>
+  <%= form_for @category do |f| %>
+    <p><%= f.label :name %>
+      <%= f.text_field :name %></p>
+      <p><%= f.submit action, :class=>"btn btn-primary" %></p>
+  <% end %>
 </div>
