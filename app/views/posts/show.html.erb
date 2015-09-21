@@ -1,54 +1,54 @@
 <p class="pull-right"><%= link_to "See all posts", posts_path %></p>
-<%= render "shared/content_title", title: "#{@post.title}" %>	
+<%= render "shared/content_title", title: "#{@post.title}" %> 
 <hr>
 <div class="row">
-	<div class="span10">
-		<p> <%= @post.description %></p>
-	  <p>Source: <%= link_to @post.url, fix_url(@post.url) %></p>
-	  <% if logged_in? %> 
-	  <p><%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-primary" %></p>
-	  <% end %>
-	</div>
+  <div class="span10">
+    <p> <%= @post.description %></p>
+    <p>Source: <%= link_to @post.url, fix_url(@post.url) %></p>
+    <% if logged_in? %> 
+    <p><%= link_to "Edit", edit_post_path(@post), :class=>"btn btn-primary" %></p>
+    <% end %>
+  </div>
 </div>
 <hr>
 
 <% if logged_in? %>
-	<div class="row">
-		<div class="span12">
-			<h5>Leave Comment</h5>
-		</div>
-		<div class="span9 well">
-			<%= form_for [@post, @comment] do |f| %>
-				<%= render 'shared/error', obj: @comment %>
-				<%= f.text_area :body, :class=>"span9", size:"3x3" %>
-				<p><%= f.submit "Send", :class=>"btn btn-primary pull-right" %></p>
-			<% end %>
-		</div>
-	</div>
+  <div class="row">
+    <div class="span12">
+      <h5>Leave Comment</h5>
+    </div>
+    <div class="span9 well">
+      <%= form_for [@post, @comment] do |f| %>
+        <%= render 'shared/error', obj: @comment %>
+        <%= f.text_area :body, :class=>"span9", size:"3x3" %>
+        <p><%= f.submit "Send", :class=>"btn btn-primary pull-right" %></p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <div class="row">
-	<div class="span12">
-		<h5>Comments </h5>
-	</div>
+  <div class="span12">
+    <h5>Comments </h5>
+  </div>
 
-	<% @post.comments.each do |comment| %>
-		<div class="row">
-			<div class="span12">
+  <% @post.comments.each do |comment| %>
+    <div class="row">
+      <div class="span12">
 
-				<div class="span1 well text-center">
-					<i class="icon-arrow-up"></i>
-					<p>votes</p>
-					<i class="icon-arrow-down"></i>
-				</div>
+        <div class="span1 well text-center">
+          <i class="icon-arrow-up"></i>
+          <p>votes</p>
+          <i class="icon-arrow-down"></i>
+        </div>
 
-				<div class="span8 well">
-					<p><%= comment.body %></p>
-					<p><%= comment.user.username %></p>
-				</div>
+        <div class="span8 well">
+          <p><%= comment.body %></p>
+          <p><%= comment.user.username %></p>
+        </div>
 
-			</div>
-		</div>
-	<% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 

@@ -2,8 +2,8 @@
 
 <% @posts.each do |post| %>
 <div class="well">
-	<h4><%= link_to post.title, post_path(post) %></h4>
-	<p><span class="muted">posted by</span> <%= link_to post.user.username, user_path(post.user) %> <small class="">at <%= display_time(post.created_at) %> </small></p>
-	<p><%= link_to "#{post.comments.length} comments", post_path(post) %></p>
+  <h4><%= link_to post.title, post_path(post) %></h4>
+  <p><span class="muted">posted by</span> <%= link_to post.user.username, user_path(post.user) %> <small class="">at <%= display_time(post.created_at) %> </small></p>
+  <p><%= link_to "#{post.comments.length} comments", post_path(post) %></p>
 </div>
 <% end %>
