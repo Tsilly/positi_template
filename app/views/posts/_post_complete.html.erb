@@ -1,15 +1,12 @@
-<div class="row">
-  <div class="span10">
-    <p class="lead"><b> <%= post.title %></b></p>
-    <hr>
-    <div class="well">
-      <p> <%= post.description %></p>
-      <p>Source: <%= link_to post.url, fix_url(post.url) %></p>
-      <% if logged_in? %> 
-        <hr>
-        <p><%= link_to "Edit", edit_post_path(post), :class=>"btn btn-primary" %></p>
-      <% end %>
-    </div>
+<div class="span10">
+  <p class="lead"><b> <%= post.title %></b></p>
+  <hr>
+  <div class="well">
+    <p> <%= post.description %></p>
+    <p>Source: <%= link_to post.url, fix_url(post.url) %></p>
+    <% if logged_in? %> 
+      <hr>
+      <p><%= link_to "Edit", edit_post_path(post), :class=>"btn btn-primary" %></p>
+    <% end %>
   </div>
 </div>
-<hr>
