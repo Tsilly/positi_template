@@ -6,17 +6,20 @@
     <div class="span12">
       <h5>Comments (<%= comment.length %>) </h5>
     </div> 
+
     <% comment.each do |comment| %>
-    <div class="row">
-      <div class="span12">
-        <%= render "shared/vote" %>
-        <div class="span8 well">
-          <p><%= comment.body %></p>
-          <p><span class="muted"> posted by</span> <%= link_to comment.user.username, user_path(comment.user) %> <small cla
-          =""> at <%= display_time(comment.created_at) %></p>
+      <div class="row">
+        <div class="span12">
+          <%= render "shared/vote" %>
+          <div class="span8 well">
+            <p><em>"<%= comment.body %>"</em> on <%= link_to comment.post.title, post_path(comment.post_id) %></p>
+
+            <p><span class="muted"> posted by</span> <%= link_to comment.user.username, user_path(comment.user) %> <small cla
+            =""> at <%= display_time(comment.created_at) %></small></p>
+          </div>
         </div>
-        <% end %>
       </div>
-    </div>  
+    <% end %>
+
   </div>
 <% end %>
