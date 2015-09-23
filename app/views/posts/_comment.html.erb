@@ -12,6 +12,8 @@
         <%= render "shared/vote" %>
         <div class="span8 well">
           <p><%= comment.body %></p>
+          <p><span class="muted"> posted by</span> <%= link_to comment.user.username, user_path(comment.user) %> <small cla
+          =""> at <%= display_time(comment.created_at) %></p>
         </div>
         <% end %>
       </div>
