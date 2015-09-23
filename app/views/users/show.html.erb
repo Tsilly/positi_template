@@ -2,35 +2,31 @@
 <hr>
 
 <div class="well">
-  <p><b>Username: </b> <%= current_user.username %></p>
-  <p><b>Time zone: </b> <%= current_user.time_zone %></p>
+  <p><b>Username: </b> <%= @user.username %></p>
+  <p><b>Time zone: </b> <%= @user.time_zone %></p>
 </div>
 
 <div>
-  <h5><%= current_user.username %>'s Activity</h5>
+  <h5><%= @user.username %>'s Activity</h5>
   <!-- nav tabs-->
-  <div class="tabbable">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab1" data-toggle="tab">Post</a></li>
-      <li><a href="#tab2" data-toggle="tab">Comment</a></li>
+  <ul class="nav nav-tabs">
+    <li class='<%= 'active' if params[:tab].nil? %>'>
+      <%= link_to "Posts (#{@user.posts.length})", user_path(@user) %>
+    </li>
+    <li class='<%= 'active' if params[:tab] == 'comments' %>'>
+      <%= link_to "Comments (#{@user.comments.length})", user_path(@user, tab: 'comments') %>
+    </li>
+  </ul>
+  
+  <% if params[:tab].nil? %>
+    <%= render "posts/post", post: @user.posts %>
+  <% elsif params[:tab] =='comments' %>
+    <% @user.comments.each do |f| %>
+    <ul>
+      <li><%= link_to f.body, post_path(f.post_id) %></li>
     </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="tab1">
-        <% @user.posts.each do |f| %>
-        <ul>
-          <li> <%= link_to f.title, post_path(f) %> </li>
-        </ul>
-        <% end %>
-      </div>
-      <div class="tab-pane" id="tab2">
-        <ul>
-          <% @user.comments.each do |f| %>
-          <li> <b>Post:</b> <%= f.post.title %></li>
-          <p> <b>Comment:</b> <br><%= f.body %></p>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
+    
   <hr>
 </div>
