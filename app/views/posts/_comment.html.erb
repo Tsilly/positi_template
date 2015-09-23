@@ -1,12 +1,12 @@
-<% if post.comments.nil? %>
+<% if comment.nil? %>
   <hr>
   <p> No comments </p>
 <% else %>
   <div class="row">
     <div class="span12">
-      <h5>Comments (<%= post.comments.length %>) </h5>
+      <h5>Comments (<%= comment.length %>) </h5>
     </div> 
-    <% post.comments.each do |comment| %>
+    <% comment.each do |comment| %>
     <div class="row">
       <div class="span12">
         <%= render "shared/vote" %>

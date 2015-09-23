@@ -21,11 +21,7 @@
   <% if params[:tab].nil? %>
     <%= render "posts/post", post: @user.posts %>
   <% elsif params[:tab] =='comments' %>
-    <% @user.comments.each do |f| %>
-    <ul>
-      <li><%= link_to f.body, post_path(f.post_id) %></li>
-    </ul>
-    <% end %>
+    <%= render "posts/comment", comment: current_user.comments %>
   <% end %>
     
   <hr>
