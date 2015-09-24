@@ -1,5 +1,5 @@
 
-<%= render "shared/content_title", title: "All posts" %>
+<%= render "shared/content_title", title: "Categories" %>
 
 <% @categories.each do |cat| %>
 <h4><%= link_to cat.name, category_path(cat) %></h4>

@@ -2,6 +2,7 @@
   <p class="lead"><b> <%= post.title %></b></p>
   <hr>
   <div class="well">
+    <p><%= render "posts/category", post: post %></p>
     <p> <%= post.description %></p>
     <p>Source: <%= link_to post.url, fix_url(post.url) %></p>
     <% if logged_in? %> 

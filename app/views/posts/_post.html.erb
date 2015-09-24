@@ -4,6 +4,7 @@
       <%= render "shared/vote" %>
 
       <div class="span8 well">
+        <%= render "posts/category", post: post %>
         <h4><%= link_to post.title, post_path(post) %></h4>
         <p><%= truncate("#{post.description}", length: 200, omission: '...') %><%= link_to "more", post_path(post) %></p>
         <p><span class="muted">posted by</span> <%= link_to post.user.username, user_path(post.user) %> <small class="">at <%= display_time(post.created_at) %> </small></p>
