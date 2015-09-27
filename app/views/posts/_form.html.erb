@@ -15,11 +15,11 @@
     <%= f.text_field :url %>
     </div>
     
-    <div class="control-group">
+    <!-- <div class="control-group">
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
         <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
       <% end %>
-    </div>
+    </div> -->
 
     <%= f.submit action, :class=>"btn btn-primary" %>
   <% end %>
