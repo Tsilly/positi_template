@@ -12,5 +12,5 @@ atomic_reference.c:50:9: warning: implicit declaration of function 'OSAtomicComp
 linking shared-object atomic_reference.bundle
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 atomic_reference.bundle ./.gem.20150930-33460-pr7113
+/usr/bin/install -c -m 0755 atomic_reference.bundle ./.gem.20151004-4422-1qi7em4
 installing default atomic_reference libraries

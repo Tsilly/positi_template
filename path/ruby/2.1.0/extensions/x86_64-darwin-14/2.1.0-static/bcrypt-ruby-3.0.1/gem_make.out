@@ -21,5 +21,5 @@ In file included from wrapper.c:27:
 linking shared-object bcrypt_ext.bundle
 
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20150930-33460-6z8zt6
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20151004-4422-sga580
 installing default bcrypt_ext libraries

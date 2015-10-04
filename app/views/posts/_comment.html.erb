@@ -10,7 +10,15 @@
     <% comment.each do |comment| %>
       <div class="row">
         <div class="span12">
-          <%= render "shared/vote" %>
+          <div class="span1 well text-center">
+            <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %> 
+              <i class="icon-arrow-up"></i>
+            <% end %>
+              <p><%= comment.total_votes %> votes</p>
+            <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %> 
+              <i class="icon-arrow-down"></i>
+            <% end %>
+          </div>
           <div class="span8 well">
             <p><em>"<%= comment.body %>"</em> on <%= link_to comment.post.title, post_path(comment.post_id) %></p>
 

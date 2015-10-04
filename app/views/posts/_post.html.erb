@@ -1,12 +1,22 @@
 <% post.each do |post| %>
   <div class="row">
     <div class="span12">
-      <%= render "shared/vote" %>
-
+      <!--Vote-->
+      <div class="span1 well text-center">
+        <%= link_to vote_post_path(post, vote: true), method: 'post' do %> 
+          <i class="icon-arrow-up"></i>
+        <% end %>
+        <!--numbers of votes_for-->
+        <p><%= post.total_votes %> votes</p>
+        <%= link_to vote_post_path(post, vote: false), method: 'post' do %> 
+          <i class="icon-arrow-down"></i>
+        <% end %>
+      </div>
+      <!--Posts-->
       <div class="span8 well">
         <%= render "posts/category", post: post %>
         <h4><%= link_to post.title, post_path(post) %></h4>
-        <p><%= truncate("#{post.description}", length: 200, omission: '...') %><%= link_to "more", post_path(post) %></p>
+        <p><%= truncate("#{post.description}", length: 200, omission: '...') %><br><%= link_to "...more", post_path(post) %></p>
         <p><span class="muted">posted by</span> <%= link_to post.user.username, user_path(post.user) %> <small class="">at <%= display_time(post.created_at) %> </small></p>
         <p><%= link_to "#{post.comments.length} comments", post_path(post) %></p>
       </div>

@@ -1,4 +1,4 @@
-class CreatePostCategories < ActiveRecord::Migration
+ class CreatePostCategories < ActiveRecord::Migration
   def change
     create_table :post_categories do |t|
       t.integer :post_id
