@@ -40,11 +40,11 @@ class PostsController < ApplicationController
     # @post = Post.find(params[:id]) -> see before_action :find_post, only: [..., :vote]
     Vote.create(voteable: @post, user: current_user, vote: params[:vote])
     
-    if vote.valid? #vote is counted
-      flash[:notice] = "Your vote was counted."
-    else
-      flash[:error] = "You can only vote on a post once."
-    end
+    # if vote.valid? #vote is counted
+    #   flash[:notice] = "Your vote was counted."
+    # else
+    #   flash[:error] = "You can only vote on a post once."
+    # end
     
     redirect_to :back
   end
