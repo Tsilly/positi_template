@@ -13,7 +13,6 @@
 3. Remember, you have to "git add" changes to ready it for a commit, then "git commit" to commit those changes locally, then "git push origin master" to push it to the remote "origin" repository, which is the previously created github.com repository.
 
 == Deploying to Heroku
-
 1. Download the Heroku Toolbelt.
 2. Go to Heroku.com and register.
 3. Issue "heroku login" to authenticate, with the credentials from previous step. Make sure it's a git repository, by issuing "git init", and also "git add", "git commit" your files.
