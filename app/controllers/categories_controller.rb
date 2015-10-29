@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
 
   private 
   def find_category
-    @category = Category.find(params[:id])
+    @category = Category.find_by(slug: params[:id])
   end
   def params_category 
     params.require(:category).permit(:name)

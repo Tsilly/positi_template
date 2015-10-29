@@ -13,16 +13,20 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    comment = Comment.find(params[:id])
-    Vote.create(voteable: comment, user: current_user, vote: params[:vote])
+    @comment = Comment.find(params[:id])
+    @vote = Vote.create(voteable: @comment, user: current_user, vote: params[:vote])
     
-    # if vote.valid? #vote is counted
-    #   flash[:notice] = "Your vote was counted."
-    # else
-    #   flash[:error] = "You can only vote on a comment once."
-    # end
-    
-    redirect_to :back
+    respond_to do |format|
+      format.html do
+        if @vote.valid? #vote is counted
+          flash[:notice] = "Your vote was counted."
+        else
+          flash[:error] = "You can only vote on a comment once."
+        end
+        redirect_to :back
+      end
+      format.js
+    end  
   end
 
 end

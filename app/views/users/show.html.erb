@@ -21,7 +21,7 @@
   <% if params[:tab].nil? %>
     <%= render "posts/post", post: @user.posts %>
   <% elsif params[:tab] =='comments' %>
-    <%= render "posts/comment", comment: current_user.comments %>
+    <%= render "comments/comment", comment: current_user.comments %>
   <% end %>
     
   <hr>

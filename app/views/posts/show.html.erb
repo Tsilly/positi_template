@@ -6,9 +6,11 @@
 
 <% if logged_in? %>
   <div class="row">
+    <!--title-->
     <div class="span9">
       <h5>Leave Comment</h5>
     </div>
+    <!--form-->
     <div class="span9 well">
       <%= form_for [@post, @comment] do |f| %>
         <%= render 'shared/error', obj: @comment %>
@@ -19,5 +21,5 @@
   </div>
 <% end %>
 
-<%= render "posts/comment", comment: @post.comments %>
+<%= render "comments/comment", comment: @post.comments %>
 
