@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..20 }, on: :create
   validates :time_zone, presence: true
 
+  sluggable_column :username
   
 end
