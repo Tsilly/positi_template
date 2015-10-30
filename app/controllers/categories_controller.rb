@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update]
   before_action :require_user, except: [:index, :show]
-  
+  before_action :require_admin or :require_creator, only: [:new, :create]
+
   def index
     @categories = Category.all
   end
@@ -21,7 +22,9 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
+
   def edit ;end
+
   def update
     if @category.update(params_category)
       flash[:notice] = "#{@category.name} is updated"
@@ -32,10 +35,11 @@ class CategoriesController < ApplicationController
   end
 
   private 
-  def find_category
-    @category = Category.find_by(slug: params[:id])
-  end
-  def params_category 
-    params.require(:category).permit(:name)
-  end
+    def find_category
+      @category = Category.find_by(slug: params[:id])
+    end
+
+    def params_category 
+      params.require(:category).permit(:name)
+    end
 end
